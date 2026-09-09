@@ -14,6 +14,9 @@ import ConfirmationPage from './pages/client/ConfirmationPage';
 import SchedulePage from './pages/client/SchedulePage';
 import ContactPage from './pages/client/ContactPage';
 import MyOrderPage from './pages/client/MyOrderPage';
+import LegalNoticePage from './pages/client/LegalNoticePage';
+import PrivacyPolicyPage from './pages/client/PrivacyPolicyPage';
+import CookiesPolicyPage from './pages/client/CookiesPolicyPage';
 
 import LoginPage from './pages/admin/LoginPage';
 import DashboardPage from './pages/admin/DashboardPage';
@@ -43,6 +46,9 @@ export default function App() {
               <Route path="/horario" element={<SchedulePage />} />
               <Route path="/contacto" element={<ContactPage />} />
               <Route path="/mi-pedido" element={<MyOrderPage />} />
+              <Route path="/aviso-legal" element={<LegalNoticePage />} />
+              <Route path="/politica-de-privacidad" element={<PrivacyPolicyPage />} />
+              <Route path="/politica-de-cookies" element={<CookiesPolicyPage />} />
             </Route>
 
             <Route path="/admin/login" element={<LoginPage />} />

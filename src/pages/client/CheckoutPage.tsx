@@ -129,7 +129,11 @@ export default function CheckoutPage() {
               checked={accepted}
               onChange={(e) => setAccepted(e.target.checked)}
             />
-            Acepto las condiciones y confirmo que pasaré a recoger el pedido.
+            Acepto las condiciones y la{' '}
+            <Link to="/politica-de-privacidad" target="_blank" className="underline hover:text-pimenton-500">
+              política de privacidad
+            </Link>
+            , y confirmo que pasaré a recoger el pedido.
           </label>
         </div>
 
@@ -159,7 +163,11 @@ export default function CheckoutPage() {
               checked={accepted}
               onChange={(e) => setAccepted(e.target.checked)}
             />
-            Acepto las condiciones y confirmo que pasaré a recoger el pedido.
+            Acepto las condiciones y la{' '}
+            <Link to="/politica-de-privacidad" target="_blank" className="underline hover:text-pimenton-500">
+              política de privacidad
+            </Link>
+            , y confirmo que pasaré a recoger el pedido.
           </label>
 
           {error && <p className="mt-3 text-sm font-semibold text-red-500">{error}</p>}

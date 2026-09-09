@@ -4,6 +4,7 @@ import ClientNav from '../components/client/ClientNav';
 import Footer from '../components/client/Footer';
 import CartFab from '../components/client/CartFab';
 import WhatsAppFab from '../components/client/WhatsAppFab';
+import CookieBanner from '../components/client/CookieBanner';
 
 export default function ClientLayout() {
   const location = useLocation();
@@ -22,6 +23,7 @@ export default function ClientLayout() {
 
       {!isConfirmation && <CartFab />}
       {!isConfirmation && <WhatsAppFab />}
+      <CookieBanner />
     </div>
   );
 }

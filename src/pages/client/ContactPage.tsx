@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { Check, MapPin, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { supabase } from '../../lib/supabaseClient';
 import { useApp } from '../../state/AppContext';
 
@@ -136,6 +137,14 @@ export default function ContactPage() {
               <button type="submit" disabled={status === 'sending'} className="btn-primary w-full">
                 {status === 'sending' ? 'Enviando...' : 'Enviar mensaje'}
               </button>
+
+              <p className="text-center text-xs text-brasa-400">
+                Al enviar este formulario aceptas nuestra{' '}
+                <Link to="/politica-de-privacidad" target="_blank" className="underline hover:text-pimenton-500">
+                  política de privacidad
+                </Link>
+                .
+              </p>
             </form>
           )}
         </div>

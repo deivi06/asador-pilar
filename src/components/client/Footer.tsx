@@ -1,4 +1,5 @@
 import { Facebook, Instagram } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useApp } from '../../state/AppContext';
 import { scheduleRangeLabel } from '../../utils/schedule';
 
@@ -40,8 +41,13 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-8 max-w-6xl border-t border-brasa-700 pt-5 text-center text-xs text-brasa-400">
-        © {new Date().getFullYear()} {businessInfo.name}
+      <div className="mx-auto mt-8 flex max-w-6xl flex-col items-center gap-3 border-t border-brasa-700 pt-5 text-center text-xs text-brasa-400">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+          <Link to="/aviso-legal" className="transition hover:text-white">Aviso Legal</Link>
+          <Link to="/politica-de-privacidad" className="transition hover:text-white">Política de Privacidad</Link>
+          <Link to="/politica-de-cookies" className="transition hover:text-white">Política de Cookies</Link>
+        </div>
+        <p>© {new Date().getFullYear()} {businessInfo.name}</p>
       </div>
     </footer>
   );
