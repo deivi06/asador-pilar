@@ -43,6 +43,9 @@ gestiona todo desde un panel de administración con acceso restringido a gerente
 
 ![Menú del día desplegado](docs/screenshots/menu-day.png)
 
+**[Vídeo del panel de administración](docs/videos/admin-demo.webm)** (acceso protegido, no incluido
+en la demo pública).
+
 ## Stack técnico
 
 | Capa | Tecnología |
