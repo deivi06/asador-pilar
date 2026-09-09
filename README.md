@@ -1,4 +1,4 @@
-# 🍗 Asador Pilar
+# Asador Pilar
 
 Aplicación web completa de pedidos para recoger en tienda, construida para un asador real en
 Beniel (Murcia). Los clientes hacen su pedido online sin necesidad de cuenta, y el negocio lo
@@ -8,7 +8,7 @@ gestiona todo desde un panel de administración con acceso restringido a gerente
 
 ![Página de inicio](docs/screenshots/home.png)
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 ### Cara al cliente
 
@@ -43,7 +43,7 @@ gestiona todo desde un panel de administración con acceso restringido a gerente
 
 ![Menú del día desplegado](docs/screenshots/menu-day.png)
 
-## 🛠️ Stack técnico
+## Stack técnico
 
 | Capa | Tecnología |
 |---|---|
@@ -59,7 +59,7 @@ gestiona todo desde un panel de administración con acceso restringido a gerente
 acceso de escritura directo a las tablas, y los datos quedan compartidos entre dispositivos en
 lugar de vivir en el `localStorage` de cada navegador.
 
-## 📂 Estructura del proyecto
+## Estructura del proyecto
 
 ```
 src/
@@ -79,7 +79,7 @@ supabase/
   functions/        Edge Functions (envío de email de confirmación)
 ```
 
-## 🚀 Cómo ejecutarlo en local
+## Cómo ejecutarlo en local
 
 Requisitos: Node.js 18+ y un proyecto de [Supabase](https://supabase.com) (gratuito).
 
