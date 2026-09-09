@@ -4,7 +4,7 @@ Aplicación web completa de pedidos para recoger en tienda, construida para un a
 Beniel (Murcia). Los clientes hacen su pedido online sin necesidad de cuenta, y el negocio lo
 gestiona todo desde un panel de administración con acceso restringido a gerentes.
 
-**[🔗 Ver demo en vivo](https://asador-pilar.vercel.app)**
+**[ Ver demo en vivo](https://asador-pilar.vercel.app)**
 
 ![Página de inicio](docs/screenshots/home.png)
 
@@ -114,6 +114,6 @@ npm run build      # build de producción
 npm run preview    # previsualizar el build
 ```
 
-## 📄 Licencia
+## Licencia
 
 MIT
