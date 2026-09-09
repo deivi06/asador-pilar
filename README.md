@@ -107,10 +107,18 @@ Ejecuta estos archivos, **en este orden**, en el **SQL Editor** de tu proyecto d
 7. `supabase/update_comidas_menu.sql`, `supabase/update_postres_menu.sql`,
    `supabase/add_comidas_photos.sql`, `supabase/add_more_photos.sql`,
    `supabase/add_postres_photos.sql` — ajustes de contenido de la carta real y sus fotos.
+8. `supabase/harden_place_order.sql` — hace que `place_order` calcule el precio y el total
+   siempre en el servidor a partir del catálogo, en vez de fiarse de lo que mande el cliente.
+9. `supabase/add_rate_limiting.sql` — límite de intentos en `place_order`, en la consulta y
+   anulación de pedidos por teléfono, y en el formulario de contacto, para evitar
+   enumeración de pedidos ajenos y spam.
 
 La Edge Function de `supabase/functions/send-order-email` se despliega desde el panel de
 **Edge Functions** de Supabase (necesita la variable de entorno `RESEND_API_KEY` de
-[Resend](https://resend.com)).
+[Resend](https://resend.com); `SUPABASE_URL` y `SUPABASE_SERVICE_ROLE_KEY` los inyecta
+Supabase automáticamente). Vuelve a desplegarla tras actualizar `index.ts` para que recoja
+los cambios de seguridad (ahora resuelve los datos del pedido en el servidor en vez de
+aceptarlos del cliente).
 
 ```bash
 npm run build      # build de producción

@@ -11,7 +11,6 @@ import type {
   TimeSlot,
 } from '../types';
 import { supabase } from '../lib/supabaseClient';
-import { formatOrderCode } from '../utils/format';
 import {
   businessInfoToRow,
   rowToBusinessInfo,
@@ -284,16 +283,17 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const placeOrder = async (params: PlaceOrderParams): Promise<Order> => {
     const items = params.items ?? cart;
-    const total = items.reduce((sum, l) => sum + l.price * l.quantity, 0);
     const notes = params.notes !== undefined ? params.notes : cartNotes || undefined;
 
+    // El precio y el total los recalcula siempre el servidor a partir del
+    // catálogo (ver supabase/harden_place_order.sql), así que aquí solo se
+    // manda qué producto y cuántas unidades: no hay total que manipular.
     const { data, error } = await supabase.rpc('place_order', {
       p_customer_name: params.customerName,
       p_phone: params.phone,
       p_email: params.email ?? null,
       p_pickup_time: params.pickupTime,
-      p_items: items,
-      p_total: total,
+      p_items: items.map((l) => ({ productId: l.productId, quantity: l.quantity })),
       p_notes: notes ?? null,
       p_origin: params.origin,
     });
@@ -310,17 +310,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
     if (order.email) {
       // No bloquea la confirmación del pedido si el email tarda o falla.
+      // Solo se manda el id: la función busca el resto de datos del pedido
+      // (y del negocio) directamente en la base de datos, así no hay nada
+      // que un tercero pueda manipular llamando a la función a mano.
       supabase.functions
         .invoke('send-order-email', {
-          body: {
-            email: order.email,
-            orderCode: formatOrderCode(order.id),
-            pickupTime: order.pickupTime,
-            address: businessInfo.address,
-            businessName: businessInfo.name,
-            items: order.items,
-            total: order.total,
-          },
+          body: { orderId: order.id },
         })
         .then(({ error: fnError }) => {
           if (fnError) console.error('[AppContext] send-order-email', fnError);
